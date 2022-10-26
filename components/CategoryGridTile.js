@@ -1,9 +1,15 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View, Platform } from "react-native";
 
 export const CategoryGridTile = ({ title, color }) => {
   return (
     <View style={styles.gridItem}>
-      <Pressable style={styles.button}>
+      <Pressable
+        android_ripple={{ color: "#ccc" }}
+        style={({ pressed }) => [
+          styles.button,
+          pressed ? styles.buttonPressed : null,
+        ]}
+      >
         <View style={styles.innerContainer}>
           <Text style={styles.title}>{title}</Text>
         </View>
@@ -25,9 +31,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
+    /* stop android ripple from going outside corners but keep shadow for iOS */
+    overflow: Platform.OS === "android" ? "hidden" : "visible",
   },
   button: {
     flex: 1,
+  },
+  buttonPressed: {
+    opacity: 0.5,
   },
   innerContainer: {
     flex: 1,
