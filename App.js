@@ -9,14 +9,13 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <>
-      <StatusBar style="light" />
-      <SafeAreaView>
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="MealsCategories" component={CategoriesScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </SafeAreaView>
+      <StatusBar style="dark" />
+
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="MealsCategories" component={CategoriesScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
   );
 }
