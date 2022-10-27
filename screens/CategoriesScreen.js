@@ -9,7 +9,7 @@ export const CategoriesScreen = ({ navigation }) => {
         title={item.title}
         color={item.color}
         onPress={() =>
-          navigation.navigate("MealsOverview", { catergoryId: item.id })
+          navigation.navigate("MealsOverview", { categoryId: item.id })
         }
       />
     );
