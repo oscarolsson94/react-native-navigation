@@ -17,11 +17,11 @@ export const MealDetailsScreen = ({ route }) => {
         textStyle={styles.detailText}
       />
       <View></View>
-      <Text>Ingredients</Text>
+      <Text style={styles.subtitle}>Ingredients</Text>
       {selectedMeal.ingredients.map((ingredient) => (
         <Text key={ingredient}>{ingredient}</Text>
       ))}
-      <Text>Steps</Text>
+      <Text style={styles.subtitle}>Steps</Text>
       {selectedMeal.steps.map((step) => (
         <Text key={step}>{step}</Text>
       ))}
@@ -43,5 +43,15 @@ const styles = StyleSheet.create({
   },
   detailText: {
     color: "white",
+  },
+  subtitle: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+    margin: 4,
+    padding: 6,
+    textAlign: "center",
+    borderBottomColor: "white",
+    borderBottomWidth: 2,
   },
 });
