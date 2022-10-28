@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import { CategoryGridTile } from "../components/CategoryGridTile";
 import { CATEGORIES } from "../data/dummy-data";
 

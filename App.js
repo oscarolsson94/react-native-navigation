@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import { CategoriesScreen } from "./screens/CategoriesScreen";
+import { MealDetailsScreen } from "./screens/MealDetailsScreen";
 import { MealsOverviewScreen } from "./screens/MealsOverviewScreen";
 
 const Stack = createNativeStackNavigator();
@@ -10,7 +11,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
       <NavigationContainer>
         <Stack.Navigator
           /* default options on all screens */
@@ -36,6 +37,13 @@ export default function App() {
                 title: catId,
               };
             }} */
+          />
+          <Stack.Screen
+            name="MealDetails"
+            component={MealDetailsScreen}
+            options={{
+              title: "Details",
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>
