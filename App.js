@@ -6,6 +6,7 @@ import { CategoriesScreen } from "./screens/CategoriesScreen";
 import { MealDetailsScreen } from "./screens/MealDetailsScreen";
 import { MealsOverviewScreen } from "./screens/MealsOverviewScreen";
 
+/* For drawer navigation replace with createDrawerNavigator and import it */
 const Stack = createNativeStackNavigator();
 
 export default function App() {
