@@ -1,4 +1,4 @@
-import { View, StyleSheet, FlatList, Text } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 import { MealItem } from "../components/MealItem";
 import { MEALS } from "../data/dummy-data";
 
@@ -7,7 +7,9 @@ export const MealsOverviewScreen = ({ route }) => {
 
   const displayedMeals = MEALS.filter((meal) => meal.categoryIds.includes(id));
 
-  const renderMealItem = (item) => <MealItem title={item.title} />;
+  const renderMealItem = (item) => (
+    <MealItem title={item.title} imageUrl={item.imageUrl} />
+  );
 
   return (
     <View style={styles.container}>
