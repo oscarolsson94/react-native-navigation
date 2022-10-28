@@ -1,4 +1,6 @@
-import { Image, View, Text, StyleSheet } from "react-native";
+import { Image, View, Text, StyleSheet, ScrollView } from "react-native";
+import { List } from "../components/MealDetail/List";
+import { Subtitle } from "../components/MealDetail/Subtitle";
 import { MealDetails } from "../components/MealDetails";
 import { MEALS } from "../data/dummy-data";
 
@@ -7,29 +9,22 @@ export const MealDetailsScreen = ({ route }) => {
 
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
   return (
-    <View>
-      <Image style={styles.image} source={{ uri: selectedMeal.imageUrl }} />
-      <Text style={styles.title}>{selectedMeal.title}</Text>
-      <MealDetails
-        duration={selectedMeal.duration}
-        complexity={selectedMeal.complexity}
-        affordability={selectedMeal.affordability}
-        textStyle={styles.detailText}
-      />
-      <View style={styles.subtitleContainer}>
-        <Text style={styles.subtitle}>Ingredients</Text>
+    <ScrollView>
+      <View>
+        <Image style={styles.image} source={{ uri: selectedMeal.imageUrl }} />
+        <Text style={styles.title}>{selectedMeal.title}</Text>
+        <MealDetails
+          duration={selectedMeal.duration}
+          complexity={selectedMeal.complexity}
+          affordability={selectedMeal.affordability}
+          textStyle={styles.detailText}
+        />
+        <Subtitle>Ingredients</Subtitle>
+        <List data={selectedMeal.ingredients} />
+        <Subtitle>Steps</Subtitle>
+        <List data={selectedMeal.steps} />
       </View>
-      {selectedMeal.ingredients.map((ingredient) => (
-        <Text key={ingredient}>{ingredient}</Text>
-      ))}
-      <View style={styles.subtitleContainer}>
-        <Text style={styles.subtitle}>Steps</Text>
-      </View>
-
-      {selectedMeal.steps.map((step) => (
-        <Text key={step}>{step}</Text>
-      ))}
-    </View>
+    </ScrollView>
   );
 };
 
@@ -47,17 +42,5 @@ const styles = StyleSheet.create({
   },
   detailText: {
     color: "white",
-  },
-  subtitleContainer: {
-    marginHorizontal: 24,
-    marginVertical: 4,
-    borderBottomColor: "white",
-    borderBottomWidth: 2,
-  },
-  subtitle: {
-    color: "#e2b497",
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center",
   },
 });
