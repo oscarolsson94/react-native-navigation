@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Text } from "react-native";
+import { StyleSheet } from "react-native";
 import { CategoriesScreen } from "./screens/CategoriesScreen";
 import { MealDetailsScreen } from "./screens/MealDetailsScreen";
 import { MealsOverviewScreen } from "./screens/MealsOverviewScreen";
@@ -16,6 +16,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator
           /* default options on all screens */
+          /* same screenOptions for all Navigators */
           screenOptions={{
             headerStyle: { backgroundColor: "#351401" },
             headerTintColor: "white",
