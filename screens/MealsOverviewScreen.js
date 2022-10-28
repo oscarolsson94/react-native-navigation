@@ -7,9 +7,16 @@ export const MealsOverviewScreen = ({ route }) => {
 
   const displayedMeals = MEALS.filter((meal) => meal.categoryIds.includes(id));
 
-  const renderMealItem = (item) => (
-    <MealItem title={item.title} imageUrl={item.imageUrl} />
-  );
+  const renderMealItem = (item) => {
+    const mealItemProps = {
+      title: item.title,
+      imageUrl: item.imageUrl,
+      affordability: item.affordability,
+      complexity: item.complexity,
+      duration: item.duration,
+    };
+    return <MealItem {...mealItemProps} />;
+  };
 
   return (
     <View style={styles.container}>
