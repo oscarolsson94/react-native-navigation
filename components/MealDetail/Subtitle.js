@@ -10,7 +10,7 @@ export const Subtitle = ({ children }) => {
 
 const styles = StyleSheet.create({
   subtitleContainer: {
-    marginHorizontal: 24,
+    marginHorizontal: 12,
     marginVertical: 4,
     borderBottomColor: "white",
     borderBottomWidth: 2,
