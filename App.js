@@ -4,9 +4,21 @@ import { StatusBar } from "expo-status-bar";
 import { CategoriesScreen } from "./screens/CategoriesScreen";
 import { MealDetailsScreen } from "./screens/MealDetailsScreen";
 import { MealsOverviewScreen } from "./screens/MealsOverviewScreen";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { FavoritesScreen } from "./screens/FavoritesScreen";
 
 /* For drawer navigation replace with createDrawerNavigator and import it */
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
+const DrawerNavigator = () => {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Categories" component={CategoriesScreen} />
+      <Drawer.Screen name="Favorites" component={FavoritesScreen} />
+    </Drawer.Navigator>
+  );
+};
 
 export default function App() {
   return (
@@ -22,13 +34,8 @@ export default function App() {
             contentStyle: { backgroundColor: "#3f2f25" },
           }}
         >
-          <Stack.Screen
-            name="MealsCategories"
-            component={CategoriesScreen}
-            options={{
-              title: "All Categories",
-            }}
-          />
+          {/* nested drawer nav  */}
+          <Stack.Screen name="Drawer" component={DrawerNavigator} />
           <Stack.Screen
             name="MealsOverview"
             component={MealsOverviewScreen}
